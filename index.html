@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            let randomNUmber =Math.floor(Math.random()*(3-1 + 1) + 1);
+            if(randomNUmber == 1)
+            console.log("my ans was scissor");
+            if(randomNUmber == 2)
+            console.log("my ans was paper");
+            if(randomNUmber == 3)
+            console.log("my ans was rock");
+            let userInput = prompt("enter your answer");
+            function computeResult(consoleInput){
+                let ans = 0;
+                if(userInput == "rock"){
+                     ans = 3;
+                }
+                else if(userInput == "paper"){
+                    ans = 2;
+                }
+                else if(userInput == "scissor"){
+                    ans = 1;
+                }
+                else{
+                console.log("your answer shouldeither be rock, scissor or paper");
+                }
+            return ans;
+            }
+            let computerChoice = computeResult(userInput);
+            if(computerChoice == randomNUmber){
+                console.log("its a draw!");
+            }
+            else if(computerChoice == 2 && randomNUmber == 1){
+            console.log("i win haha");
+            }
+        else if(computerChoice == 3 && randomNUmber == 2){
+        console.log("i win haha");
+        }
+    else if(computerChoice == 1 && randomNUmber == 3){
+    console.log("i win haha");
+    }
+else if (computerChoice == 1 && randomNUmber == 2){
+console.log("you got me, you win");
+}
+else if(computerChoice == 2 && randomNUmber == 3){
+console.log("you win");
+}
+else if(computerChoice == 3 && randomNUmber == 1){
+console.log("you win");
+}
+        </script>
+    </body>
+</html>
