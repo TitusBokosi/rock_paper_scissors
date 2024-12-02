@@ -5,53 +5,93 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
-        <script>
-            let randomNUmber =Math.floor(Math.random()*(3-1 + 1) + 1);
-            if(randomNUmber == 1)
-            console.log("my ans was scissor");
-            if(randomNUmber == 2)
-            console.log("my ans was paper");
-            if(randomNUmber == 3)
-            console.log("my ans was rock");
-            let userInput = prompt("enter your answer");
-            function computeResult(consoleInput){
-                let ans = 0;
-                if(userInput == "rock"){
-                     ans = 3;
-                }
-                else if(userInput == "paper"){
-                    ans = 2;
-                }
-                else if(userInput == "scissor"){
-                    ans = 1;
-                }
-                else{
-                console.log("your answer shouldeither be rock, scissor or paper");
-                }
-            return ans;
+       <script>
+        function computer_input(){
+            let x = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            let result = "";
+            if(x == 1){
+                result = "rock";
             }
-            let computerChoice = computeResult(userInput);
-            if(computerChoice == randomNUmber){
-                console.log("its a draw!");
+            else if(x == 2){
+                result = "paper";
             }
-            else if(computerChoice == 2 && randomNUmber == 1){
-            console.log("i win haha");
+            else if (x == 3){
+                result ="scissor";
             }
-        else if(computerChoice == 3 && randomNUmber == 2){
-        console.log("i win haha");
+            else{
+                result = "wrong input, \n please put a valid input"
+            }
+            return result;
         }
-    else if(computerChoice == 1 && randomNUmber == 3){
-    console.log("i win haha");
-    }
-else if (computerChoice == 1 && randomNUmber == 2){
-console.log("you got me, you win");
-}
-else if(computerChoice == 2 && randomNUmber == 3){
-console.log("you win");
-}
-else if(computerChoice == 3 && randomNUmber == 1){
-console.log("you win");
-}
-        </script>
+        function user_input(){
+            let y = prompt("enter your answer");
+            let result = "";
+            if(y == "rock" || y == "paper" || y == "scissor"){
+                result = y;
+            }
+            else{
+                result = "input should either be rock, paper or scissor";
+            }
+            return result;
+        }
+        function round_result(){
+            let human_variable = user_input();
+            let computer_variable = computer_input();
+            let result;
+            if(human_variable == computer_variable){
+                result = "draw";
+            }
+            else if (human_variable == "rock" && computer_variable == "scissor"){
+                result = "you win";
+            }
+            else if (human_variable == "scissor" && computer_variable == "paper"){
+                result = "you win";
+            }
+            else if (human_variable == "paper" && computer_variable == "rock"){
+                result = "you win";
+            }
+            else if (computer_variable == "paper" && human_variable == "rock"){
+                result = "i win";
+            }
+            else if (computer_variable == "rock" &&  human_variable == "scissor"){
+                result = "i win";
+            }
+            else if(computer_variable == "scissor" && human_variable == "paper"){
+                result = "i win";
+            }
+            else{
+                result = "you have entered a wrong input";
+            }
+            return result;
+        }
+        let human_score = 0;
+        let computer_score = 0;
+        let score_holder = "";
+        for(let i = 0; i<5; i++){
+            score_holder = round_result();
+            if(score_holder == "i win"){
+                computer_score ++;
+            }
+            else if (score_holder == "you win"){
+                human_score ++;
+            }
+            else{
+                human_score = + 0;
+                computer_score = + 0;
+            }
+            
+        }
+        console.log("your score: " + human_score + "\n" + "my score: " + computer_score);
+        if(human_score > computer_score){
+            console.log("you win");
+        }
+        else if (computer_score > human_score){
+            console.log("i win");
+        }
+        else{
+            console.log("draw");
+        }
+        
+       </script>
     </body>
 </html>
