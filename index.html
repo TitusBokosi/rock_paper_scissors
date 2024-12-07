@@ -1,97 +1,84 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UFT-8">
-        <title>Rock Paper Scissors</title>
-    </head>
-    <body>
-       <script>
-        function computer_input(){
-            let x = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-            let result = "";
-            if(x == 1){
-                result = "rock";
-            }
-            else if(x == 2){
-                result = "paper";
-            }
-            else if (x == 3){
-                result ="scissor";
-            }
-            else{
-                result = "wrong input, \n please put a valid input"
-            }
-            return result;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    function getComputerChoice(){
+        let randomChoice = Math.floor((Math.random() * 3 ) + 1);
+        if (randomChoice == 1){
+            return "rock";
         }
-        function user_input(){
-            let y = prompt("enter your answer");
-            let result = "";
-            if(y == "rock" || y == "paper" || y == "scissor"){
-                result = y;
-            }
-            else{
-                result = "input should either be rock, paper or scissor";
-            }
-            return result;
-        }
-        function round_result(){
-            let human_variable = user_input();
-            let computer_variable = computer_input();
-            let result;
-            if(human_variable == computer_variable){
-                result = "draw";
-            }
-            else if (human_variable == "rock" && computer_variable == "scissor"){
-                result = "you win";
-            }
-            else if (human_variable == "scissor" && computer_variable == "paper"){
-                result = "you win";
-            }
-            else if (human_variable == "paper" && computer_variable == "rock"){
-                result = "you win";
-            }
-            else if (computer_variable == "paper" && human_variable == "rock"){
-                result = "i win";
-            }
-            else if (computer_variable == "rock" &&  human_variable == "scissor"){
-                result = "i win";
-            }
-            else if(computer_variable == "scissor" && human_variable == "paper"){
-                result = "i win";
-            }
-            else{
-                result = "you have entered a wrong input";
-            }
-            return result;
-        }
-        let human_score = 0;
-        let computer_score = 0;
-        let score_holder = "";
-        for(let i = 0; i<5; i++){
-            score_holder = round_result();
-            if(score_holder == "i win"){
-                computer_score ++;
-            }
-            else if (score_holder == "you win"){
-                human_score ++;
-            }
-            else{
-                human_score = + 0;
-                computer_score = + 0;
-            }
-            
-        }
-        console.log("your score: " + human_score + "\n" + "my score: " + computer_score);
-        if(human_score > computer_score){
-            console.log("you win");
-        }
-        else if (computer_score > human_score){
-            console.log("i win");
+        else if (randomChoice == 2){
+            return "paper";
         }
         else{
-            console.log("draw");
+            return "scissor";
         }
-        
-       </script>
-    </body>
+    }
+    function getHumanChoice(){
+        let humanChoice;
+        let humanInput = prompt("please enter your answer");
+        humanChoice = humanInput.toLowerCase();
+        if(humanChoice == "rock"){
+            return "rock";
+        }
+        else if (humanChoice == 'paper'){
+            return 'paper';
+            
+        }
+        else if (humanChoice == 'scissor'){
+            return 'scissor';
+        }
+        else{
+            return 'invalid input';
+        }
+    }
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(){
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        let result;
+        if ( humanChoice == computerChoice){
+            result = "tie";
+        }
+        else if (humanChoice == 'rock' && computerChoice == 'scissor' || humanChoice == 'scissor' && computerChoice == 'paper' || humanChoice == 'paper' && computerChoice == 'rock'){
+            result = 'you win';
+            humanScore ++;
+        }
+        else {
+            result = 'i win';
+            computerScore ++;
+        }
+        return result;
+    }
+    
+    function playGame(){
+        let winner;
+        let roundWinner;
+        for( i = 0; i < 5; i++){
+            roundWinner = playRound();
+        }
+        if (humanScore > computerScore){
+            winner = 'you win';
+        }
+        else if (computerScore > humanScore){
+            winner = 'i win';
+        }
+        else{
+            winner = 'tie';
+        }
+        return winner;
+    }
+
+    console.log(playGame());
+
+
+  </script>  
+</body>
 </html>
