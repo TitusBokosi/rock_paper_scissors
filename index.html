@@ -42,7 +42,24 @@
                 return 'you win';
             }
          };
-        console.log(playRound());
+
+         function playGame(){
+            let result = '';
+            let playFiveRounds;
+            for (i = 0; i < 5 ; i++){
+                playFiveRounds = playRound();
+            }
+            if (humanScore > computerScore){
+                return 'you win';
+            }
+            else if (humanScore = computerScore){
+                return 'tie';
+            }
+            else {
+                return 'i win';
+            }
+         };
+        console.log(playGame());
     </script>
 </body>
 </html>
