@@ -6,78 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-  <script>
-    function getComputerChoice(){
-        let randomChoice = Math.floor((Math.random() * 3 ) + 1);
-        if (randomChoice == 1){
-            return "rock";
+    <script>
+        function getComputerInput(){
+            let computerRandomChoice = Math.floor((Math.random() * 3) + 1);
+            if( computerRandomChoice == 1){
+                return 'rock';
+            }
+            else if (computerRandomChoice == 2){
+                return 'paper';
+            }
+            else{
+                return 'scissor';
+            }
         }
-        else if (randomChoice == 2){
-            return "paper";
-        }
-        else{
-            return "scissor";
-        }
-    }
-    function getHumanChoice(){
-        let humanChoice;
-        let humanInput = prompt("please enter your answer");
-        humanChoice = humanInput.toLowerCase();
-        if(humanChoice == "rock"){
-            return "rock";
-        }
-        else if (humanChoice == 'paper'){
-            return 'paper';
-            
-        }
-        else if (humanChoice == 'scissor'){
-            return 'scissor';
-        }
-        else{
-            return 'invalid input';
-        
-    }
-}
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound(){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        let result;
-        if ( humanChoice == computerChoice){
-            result = "tie";
-        }
-        else if (humanChoice == 'rock' && computerChoice == 'scissor' || humanChoice == 'scissor' && computerChoice == 'paper' || humanChoice == 'paper' && computerChoice == 'rock'){
-            result = 'you win';
-            humanScore ++;
-        }
-        else {
-            result = 'i win';
-            computerScore ++;
-        }
-        return result;
-    }
-    
-    function playGame(){
-        let winner;
-        let roundWinner;
-        for( i = 0; i < 5; i++){
-            roundWinner = playRound();
-        }
-        if (humanScore > computerScore){
-            winner = 'you win';
-    }
-    else if (humanScore < computerScore){
-        winner = 'i win';
-    }
-    else{
-        winner = 'tie';
-    }
-}
-    console.log(playGame());
-
-
-  </script>    
+        console.log(getComputerInput());
+    </script>
 </body>
 </html>
