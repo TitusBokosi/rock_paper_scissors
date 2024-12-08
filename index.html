@@ -18,8 +18,31 @@
             else{
                 return 'scissor';
             }
+        };
+        function getHumanInput(){
+            let userInput = prompt ('enter your answer');
+            let HumanInput = userInput.toLowerCase();
+            return HumanInput;
         }
-        console.log(getComputerInput());
+        let humanScore = 0;
+        let computerScore = 0;
+         function playRound(){
+            let humanRoundResult = getHumanInput();
+            let computerRoundResult = getComputerInput();
+            let result;
+            if(humanRoundResult == computerRoundResult){
+                return 'tie';
+            }
+            else if (computerRoundResult == 'rock' && humanRoundResult == 'scissor' || computerRoundResult == 'scissor' && humanRoundResult == 'paper' || computerRoundResult == 'paper' && humanRoundResult == 'scissor'){
+                computerScore ++;
+                return 'i win';
+            }
+            else{
+                humanScore ++;
+                return 'you win';
+            }
+         };
+        console.log(playRound());
     </script>
 </body>
 </html>
