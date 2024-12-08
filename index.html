@@ -35,8 +35,9 @@
         }
         else{
             return 'invalid input';
-        }
+        
     }
+}
     let humanScore = 0;
     let computerScore = 0;
 
@@ -66,19 +67,17 @@
         }
         if (humanScore > computerScore){
             winner = 'you win';
-        }
-        else if (computerScore > humanScore){
-            winner = 'i win';
-        }
-        else{
-            winner = 'tie';
-        }
-        return winner;
     }
-
+    else if (humanScore < computerScore){
+        winner = 'i win';
+    }
+    else{
+        winner = 'tie';
+    }
+}
     console.log(playGame());
 
 
-  </script>  
+  </script>    
 </body>
 </html>
