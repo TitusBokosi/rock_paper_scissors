@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div></div>
     <script>
         function getComputerInput(){
             let computerRandomChoice = Math.floor((Math.random() * 3) + 1);
@@ -43,23 +44,23 @@
             }
          };
 
-         function playGame(){
-            let result = '';
-            let playFiveRounds;
-            for (i = 0; i < 5 ; i++){
-                playFiveRounds = playRound();
-            }
-            if (humanScore > computerScore){
-                return 'you win';
-            }
-            else if (humanScore = computerScore){
-                return 'tie';
-            }
-            else {
-                return 'i win';
-            }
-         };
-        console.log(playGame());
+         const div = document.querySelector('div');
+         const rockbtn = document.createElement('button');
+         rockbtn.setAttribute('id', 'rockButton');
+         div.appendChild(rockbtn);
+         rockbtn.textContent = 'play';;
+         const resultDiv = document.createElement('div');
+         resultDiv.setAttribute('id', 'resultDiv');
+
+         div.appendChild(resultDiv);
+         rockbtn.addEventListener('click', () => {
+            resultDiv.textContent = playRound();
+         })
+         
+         
+      
+        
     </script>
+    
 </body>
 </html>
