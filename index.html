@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <div></div>
+    <div>click the play button to pla game <br>
+    Please enter either 'rock', 'paper' or 'scissor'. <br>
+    Any other entry will result in an error!</div>
+    <div class="button"></div>
     <script>
         function getComputerInput(){
             let computerRandomChoice = Math.floor((Math.random() * 3) + 1);
@@ -44,7 +48,7 @@
             }
          };
 
-         const div = document.querySelector('div');
+         const div = document.querySelector('.button');
          const rockbtn = document.createElement('button');
          rockbtn.setAttribute('id', 'rockButton');
          div.appendChild(rockbtn);
