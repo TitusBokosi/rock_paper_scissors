@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
             }
         };
         function getHumanInput(){
-            let userInput = prompt ('enter your answer');
+            let userInput = prompt ('enter your answer', 'none');
             let HumanInput = userInput.toLowerCase();
             return HumanInput;
         }
@@ -48,7 +49,7 @@
          const rockbtn = document.createElement('button');
          rockbtn.setAttribute('id', 'rockButton');
          div.appendChild(rockbtn);
-         rockbtn.textContent = 'play';;
+         rockbtn.textContent = 'play';
          const resultDiv = document.createElement('div');
          resultDiv.setAttribute('id', 'resultDiv');
 
